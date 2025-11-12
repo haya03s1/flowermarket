@@ -1,5 +1,4 @@
 
-// wishlist function, salha
 
 const products = [
   {id: 1, name: 'Rose', price: 5, image: 'images/rose.jpg'},
@@ -9,9 +8,6 @@ const products = [
   {id: 5, name: 'Tulip', price: 15, image: 'images/tulip.jpg'}
 ];
 
-//
-// ===== Helper Function =====
-//
 
 // get product by id
 function findProductById(id) {
@@ -23,9 +19,6 @@ function findProductById(id) {
   return null;
 }
 
-//
-// ===== Wishlist Functions =====
-//
 
 // display products on shop page
 function displayProducts() {
@@ -144,9 +137,6 @@ function removeFromWishlist(id) {
   }, 400);
 }
 
-//
-// ===== Cart and Checkout Functions =====
-//
 
 // Get cart from localStorage
 function getCart() {
@@ -251,7 +241,7 @@ function renderCart() {
     return;
   }
 
-  if (cartContainer) cartContainer.style.display = 'grid'; // (Using grid as per your CSS)
+  if (cartContainer) cartContainer.style.display = 'grid'; 
   if (emptyMsg) emptyMsg.style.display = 'none';
 
   cart.forEach(item => {
@@ -314,7 +304,6 @@ function renderCheckout() {
 function handlePaymentSubmission(event) {
   event.preventDefault();
   
-  // (Here you would add validation for payment fields)
   
   alert('Payment processed successfully! (This is a demo)');
   saveCart([]);
@@ -342,14 +331,11 @@ function handlePaymentMethodChange() {
   }
 }
 
-//
-// ===== Auth Functions (haya) & Page Initializer =====
-//
 
-//login form haya
+//login form 
 window.addEventListener("DOMContentLoaded", function() {
 
-  // --- Page Initializers ---
+  //  Page Initializers 
   const path = window.location.pathname;
 
   if (path.includes('shop.html')) {
@@ -360,7 +346,7 @@ window.addEventListener("DOMContentLoaded", function() {
   }
   else if (path.includes('cart.html')) {
     renderCart();
-    updateTotals(); // (This was missing)
+    updateTotals(); 
   } 
   else if (path.includes('checkout.html')) {
     renderCheckout();
@@ -381,7 +367,7 @@ window.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  // --- Auth Functions ---
+  // --- check Functions ---
   checkLoginStatus();
 
   var loginForm = document.getElementById("login-form");
@@ -408,9 +394,6 @@ window.addEventListener("DOMContentLoaded", function() {
     });
   }
   
-// ----------
-
-//sign up haya
   var signupForm = document.getElementById("signup-form");
 
   if (signupForm) {
@@ -456,7 +439,7 @@ window.addEventListener("DOMContentLoaded", function() {
       resetForm.style.display = "block";
     });
 
-    // ★★★ هذا هو الكود اللي كان ناقص ★★★
+  
     var newPassword = document.getElementById("new-password");
     var confirmNewPassword = document.getElementById("confirm-new-password");
     var resetError = document.getElementById("reset-error");
@@ -476,7 +459,7 @@ window.addEventListener("DOMContentLoaded", function() {
       alert("Password reset successfully! Please log in.");
       window.location.href = "login.html";
     });
-    // ★★★ نهاية الكود الناقص ★★★
+  
   }
   
   // --- Checkout Auth Guard ---
